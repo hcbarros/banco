@@ -1,6 +1,11 @@
 package banco;
 
-public class Conta {
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Conta {
 
     private String nome;
     private String cpf;
@@ -8,6 +13,7 @@ public class Conta {
     private int conta;
     private Agencia agencia;
     private double saldo;
+    private List<String> extrato;
     private static int sequencial;
 
     public Conta() { }
@@ -22,15 +28,25 @@ public class Conta {
         this.conta = ++sequencial;
         this.agencia = agencia;
         this.saldo = saldo;
+        this.extrato = new ArrayList<>();
     }
 
 
-    public void saque(double valor) {
+    public double saque(double valor, boolean ehTransferencia) {
+        if((getSaldo() - valor) < 0) {
+            System.out.println("Você não possui saldo suficiente!");
+            return 0;
+        }
         saldo -= valor;
+        if(!ehTransferencia) {
+            transacao(null, valor, true);
+        }
+        return valor;
     }
 
     public void deposito(double valor) {
         saldo += valor;
+        transacao(null, valor, false);
     }
 
     public void saldo() {
@@ -38,16 +54,39 @@ public class Conta {
     }
 
     public void extrato() {
-
+        extrato.forEach(System.out::println);
     }
 
     public void transferir(Conta c, double valor) {
-        saque(valor);
-        if(c != null) {
+        double quantia = saque(valor, true);
+        if(c != null && quantia > 0) {
+            transacao(c, valor, true);
             c.deposito(valor);
         }
     }
 
+    public void transacao(Conta c, double valor, boolean ehSaque) {
+        String result = (ehSaque ? "Saque" : "Depósito") +" ocorrido em " + getData() +
+                        "\nValor do "+(ehSaque ? "saque: " : "depósito: ")+ valor;
+        if(c != null) {
+            result = "\nTransferência ocorrida em " + getData() +
+                    "Valor da transferência: R$ " + String.format("%.2f", valor) +
+                    "Conta de origem: \n\t\t- agência ->" + agencia.name() +
+                    "\n- conta -> " + conta +
+                    "\n- nome -> " + nome +
+                    "\n- CPF -> " + cpf +
+                    "Conta de destino: \n\t\tagência ->" + c.agencia.name() +
+                    "\n- conta -> " + c.conta +
+                    "\n- nome -> " + c.nome +
+                    "\n- CPF -> " + c.cpf;
+        }
+        extrato.add(result);
+    }
+
+    public String getData() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return LocalDateTime.now().format(formatter);
+    }
 
     public String getNome() {
         return nome;
@@ -77,10 +116,6 @@ public class Conta {
         return conta;
     }
 
-    public void setConta(int conta) {
-        this.conta = conta;
-    }
-
     public Agencia getAgencia() {
         return agencia;
     }
@@ -93,19 +128,19 @@ public class Conta {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
+    public List<String> getExtrato() {
+        return extrato;
     }
 
-    public static int getSequencial() {
-        return sequencial;
-    }
-
-    public static void setSequencial(int sequencial) {
-        Conta.sequencial = sequencial;
+    public String formatarCFP(String cpf) {
+        return cpf.substring(0,3)+"."+
+                cpf.substring(3,6)+"."+
+                cpf.substring(6,9)+"-"+cpf.substring(9,11);
     }
 
     public void validarCPF(String cpf) {
+        cpf = cpf.replace("-","")
+                 .replace(".","");
         if (!cpf.matches("\\d{11}")) {
             throw new RuntimeException("O CPF deve conter apenas 11 dígitos!");
         }
