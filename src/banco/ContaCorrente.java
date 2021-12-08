@@ -4,8 +4,6 @@ public class ContaCorrente extends Conta {
 
     private double limite;
 
-    public ContaCorrente() { }
-
     public ContaCorrente(String nome, String cpf,
                          double rendaMensal,
                          Agencia agencia, double saldo) {
