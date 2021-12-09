@@ -1,8 +1,5 @@
 package banco;
 
-import java.io.Console;
-import java.lang.invoke.MethodHandle;
-import java.lang.invoke.MethodHandleInfo;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -13,8 +10,6 @@ public class Transacoes extends ArrayList<String> {
 
     public Transacoes(Conta conta) {
         this.conta = conta;
-
-        
     }
 
 
@@ -46,12 +41,12 @@ public class Transacoes extends ArrayList<String> {
         add(result);
     }
 
-    public String getData() {
+    private String getData() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         return LocalDateTime.now().format(formatter);
     }
 
-    public String formatarCFP(String cpf) {
+    private String formatarCFP(String cpf) {
         return cpf.substring(0,3)+"."+
                 cpf.substring(3,6)+"."+
                 cpf.substring(6,9)+"-"+cpf.substring(9,11);

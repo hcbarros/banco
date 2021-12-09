@@ -10,12 +10,16 @@ public class ContaCorrente extends Conta {
 
         super(nome, cpf, rendaMensal, agencia, saldo);
 
-        limite = rendaMensal/10;
+        limite = rendaMensal > 0 ? (rendaMensal/10) : 0;
     }
 
     @Override
     public double getSaldo() {
         return super.getSaldo() + limite;
+    }
+
+    public double getLimite() {
+        return limite;
     }
 
 }

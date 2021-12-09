@@ -53,17 +53,27 @@ public abstract class Conta {
     }
 
 
-    public double saque(double valor) {
+    public double saque(double valor, boolean ehTransferencia) {
+        if(valor <= 0) {
+            System.out.println("Informe um valor positivo!");
+            return 0;
+        }
         if((getSaldo() - valor) <= 0) {
             System.out.println("Você não possui saldo suficiente!");
             return 0;
         }
         saldo -= valor;
-        transacoes.saque(valor);
+        if(!ehTransferencia) {
+            transacoes.saque(valor);
+        }
         return valor;
     }
 
     public void deposito(double valor) {
+        if(valor <= 0) {
+            System.out.println("Informe um valor positivo!");
+            return;
+        }
         saldo += valor;
         transacoes.deposito(valor);
     }
@@ -77,7 +87,14 @@ public abstract class Conta {
     }
 
     public void transferir(Conta c, double valor) {
-        double quantia = saque(valor);
+        if(valor <= 0) {
+            System.out.println("Informe um valor positivo!");
+            return;
+        }
+        if(c == null) {
+            return;
+        }
+        double quantia = saque(valor, true);
         if(c != null && quantia > 0) {
             transacoes.transferencia(c, valor);
             c.deposito(valor);
@@ -124,7 +141,7 @@ public abstract class Conta {
         return saldo;
     }
 
-    public List<String> getExtrato() {
+    public Transacoes getTransacoes() {
         return transacoes;
     }
 
