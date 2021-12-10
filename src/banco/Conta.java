@@ -17,17 +17,11 @@ public abstract class Conta {
     private static int sequencial;
 
 
-    public Conta(String nome, String cpf,
-                 double rendaMensal, Agencia agencia,
-                 double saldo) {
-
+    public Conta(String nome, double rendaMensal, Agencia agencia) {
         this.nome = nome;
-        //validarCPF(cpf);
         this.rendaMensal = rendaMensal;
-        this.conta = ++sequencial;
         this.agencia = agencia;
-        this.saldo = saldo;
-        this.transacoes = new Transacoes(this);
+        this.saldo = 0.0;
     }
 
     public Conta validarCPF(String cpf) {
@@ -49,11 +43,12 @@ public abstract class Conta {
             }
         }
         this.cpf = cpf;
+        this.conta = ++sequencial;
+        this.transacoes = new Transacoes(this);
         return this;
     }
 
-
-    public double saque(double valor, boolean ehTransferencia) {
+    private double saque(double valor, boolean ehTransferencia) {
         if(valor <= 0) {
             System.out.println("Informe um valor positivo!");
             return 0;
@@ -69,13 +64,23 @@ public abstract class Conta {
         return valor;
     }
 
-    public void deposito(double valor) {
+    public double saque(double valor) {
+        return saque(valor, false);
+    }
+
+    private void deposito(double valor, boolean ehTransferencia) {
         if(valor <= 0) {
             System.out.println("Informe um valor positivo!");
             return;
         }
         saldo += valor;
-        transacoes.deposito(valor);
+        if(!ehTransferencia) {
+            transacoes.deposito(valor);
+        }
+    }
+
+    public void deposito(double valor) {
+        deposito(valor, false);
     }
 
     public void saldo() {
@@ -97,32 +102,25 @@ public abstract class Conta {
         double quantia = saque(valor, true);
         if(c != null && quantia > 0) {
             transacoes.transferencia(c, valor);
-            c.deposito(valor);
+            c.deposito(valor,true);
         }
+    }
+
+    public void alterarDadosCadastrais(String nome, double rendaMensal) {
+        this.nome = nome;
+        this.rendaMensal = rendaMensal;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public double getRendaMensal() {
         return rendaMensal;
-    }
-
-    public void setRendaMensal(double rendaMensal) {
-        this.rendaMensal = rendaMensal;
     }
 
     public int getConta() {
@@ -133,10 +131,6 @@ public abstract class Conta {
         return agencia;
     }
 
-    public void setAgencia(Agencia agencia) {
-        this.agencia = agencia;
-    }
-
     public double getSaldo() {
         return saldo;
     }
@@ -145,4 +139,11 @@ public abstract class Conta {
         return transacoes;
     }
 
+    public String toString() {
+        return "\nTipo da conta: "+getClass().getSimpleName() +
+                "\nTitular: "+ getNome() +
+                "\nAgência: "+ getAgencia() +
+                "\nNúmero da conta: "+ getConta() +
+                "\nSaldo: "+ getSaldo();
+    }
 }

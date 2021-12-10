@@ -4,12 +4,8 @@ public class ContaCorrente extends Conta {
 
     private double limite;
 
-    public ContaCorrente(String nome, String cpf,
-                         double rendaMensal,
-                         Agencia agencia, double saldo) {
-
-        super(nome, cpf, rendaMensal, agencia, saldo);
-
+    public ContaCorrente(String nome, double rendaMensal, Agencia agencia) {
+        super(nome, rendaMensal, agencia);
         limite = rendaMensal > 0 ? (rendaMensal/10) : 0;
     }
 

@@ -14,31 +14,37 @@ public class Transacoes extends ArrayList<String> {
 
 
     public void saque(double valor) {
-
-        String result = "Saque ocorrido em " + getData() +
-                        "\nValor do saque: R$ "+ valor;
+        String result = "\nSaque ocorrido em " + getData() +
+                        "\nValor do saque: R$ "+ valor +
+                        "\nNúmero da conta: "+ conta.getConta() +
+                        "\nAgência: "+ conta.getAgencia().name();
         add(result);
+        System.out.println("Saque realizado com sucesso!");
     }
 
     public void deposito(double valor) {
-        String result = "Depósito ocorrido em " + getData() +
-                        "\nValor do depósito: R$ "+ valor;
+        String result = "\nDepósito ocorrido em " + getData() +
+                        "\nValor do depósito: R$ "+ valor+
+                        "\nNúmero da conta: "+ conta.getConta() +
+                        "\nAgência: "+ conta.getAgencia().name();
         add(result);
+        System.out.println("Depósito realizado com sucesso!");
     }
 
     public void transferencia(Conta dest, double valor) {
         String result = "\nTransferência ocorrida em " + getData() +
-                "Valor da transferência: R$ " + String.format("%.2f", valor) +
-                "Conta de origem: \n\t\t- agência ->" + conta.getAgencia().name() +
-                "\n- conta -> " + conta.getConta() +
-                "\n- nome -> " + conta.getNome() +
-                "\n- CPF -> " + formatarCFP(conta.getCpf()) +
-                "Conta de destino: \n\t\tagência ->" + dest.getAgencia().name() +
-                "\n- conta -> " + dest.getConta() +
-                "\n- nome -> " + dest.getNome() +
-                "\n- CPF -> " + formatarCFP(dest.getCpf());
+                "\nValor da transferência: R$ " + String.format("%.2f", valor) +
+                "\nConta de origem: \n\t\t- agência -> " + conta.getAgencia().name() +
+                "\n\t\t- conta -> " + conta.getConta() +
+                "\n\t\t- nome do titular -> " + conta.getNome() +
+                "\n\t\t- CPF -> " + formatarCFP(conta.getCpf()) +
+                "\nConta de destino: \n\t\t- agência -> " + dest.getAgencia().name() +
+                "\n\t\t- conta -> " + dest.getConta() +
+                "\n\t\t- nome do titular -> " + dest.getNome() +
+                "\n\t\t- CPF -> " + formatarCFP(dest.getCpf());
 
         add(result);
+        System.out.println("Transferência realizada com sucesso!");
     }
 
     private String getData() {
@@ -50,10 +56,6 @@ public class Transacoes extends ArrayList<String> {
         return cpf.substring(0,3)+"."+
                 cpf.substring(3,6)+"."+
                 cpf.substring(6,9)+"-"+cpf.substring(9,11);
-    }
-
-    private void investimento() {
-
     }
 
 }
