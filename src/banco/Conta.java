@@ -1,5 +1,6 @@
 package banco;
 
+import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -25,10 +26,6 @@ public abstract class Conta {
     }
 
     public Conta validarCPF(String cpf) {
-        if (!cpf.matches("\\d{11}")) {
-            System.out.println("O CPF deve conter apenas 11 dígitos!");
-            return null;
-        }
         for(int i = 9; i < 11; i++) {
             int soma = 0;
             int desc = i + 1;
@@ -53,9 +50,18 @@ public abstract class Conta {
             System.out.println("Informe um valor positivo!");
             return 0;
         }
-        if((getSaldo() - valor) <= 0) {
-            System.out.println("Você não possui saldo suficiente!");
-            return 0;
+        if((saldo - valor) <= 0) {
+            try {
+                Method m = this.getClass().getMethod("getLimite");
+                double limite = (double) m.invoke(this);
+                if((saldo + limite) - valor < 0) {
+                    System.out.println("Você não possui saldo suficiente!");
+                    return 0;
+                }
+            }catch(Exception e) {
+                System.out.println("Você não possui saldo suficiente!");
+                return 0;
+            }
         }
         saldo -= valor;
         if(!ehTransferencia) {
@@ -88,6 +94,10 @@ public abstract class Conta {
     }
 
     public void extrato() {
+        if(transacoes.isEmpty()) {
+            System.out.println("A conta de número "+conta+" ainda não possui movimentação!");
+            return;
+        }
         transacoes.forEach(System.out::println);
     }
 
