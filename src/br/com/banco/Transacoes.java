@@ -35,7 +35,7 @@ public class Transacoes extends ArrayList<String> {
 
     public void depositoOutraConta(Conta origem, double valor) {
         String result = "\nDepósito ocorrido em " + getData() +
-                "\nValor da depósito: R$ " + String.format("%.2f", valor) +
+                "\nValor do depósito: R$ " + String.format("%.2f", valor) +
                 "\nConta de origem: \n\t\t- agência -> " + origem.getAgencia().name() +
                 "\n\t\t- conta -> " + origem.getConta() +
                 "\n\t\t- nome do titular -> " + origem.getNome() +
@@ -46,7 +46,6 @@ public class Transacoes extends ArrayList<String> {
                 "\n\t\t- CPF -> " + formatarCFP(conta.getCpf());
 
         add(result);
-        System.out.println("\nTransferência realizada com sucesso!");
     }
 
     public void transferencia(Conta dest, double valor) {

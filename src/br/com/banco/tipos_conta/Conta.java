@@ -4,6 +4,7 @@ import br.com.banco.enums.Agencia;
 import br.com.banco.Transacoes;
 
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 
 public abstract class Conta {
 
@@ -36,11 +37,14 @@ public abstract class Conta {
     }
 
     public static boolean ehCpfValido(String cpf, boolean inicio) {
-        cpf = cpf.replace(".","").replace("-","");
+        cpf = cpf.replaceAll("[^\\d]", "");
         if(!cpf.matches("\\d{11}")) return false;
         int soma = 0;
         int desc = (inicio ? 9 : 10) + 1;
+        BigDecimal big = BigDecimal.ZERO;
         for (int j = 0; j < (inicio ? 9 : 10); j++) {
+            if(big.toString().equals(cpf)) return false;
+            big = big.add(new BigDecimal("11111111111"));
             soma += (cpf.charAt(j) - '0') * (desc--);
         }
         int resp = (soma % 11) < 2 ? 0 : (11 - (soma % 11));
@@ -162,7 +166,7 @@ public abstract class Conta {
                 "\nTitular: "+ getNome() +
                 "\nAgência: "+ getAgencia() +
                 "\nNúmero da conta: "+ getConta() +
-                "\nRenda mensal: R$"+ getRendaMensal() +
+                "\nRenda mensal: R$ "+ getRendaMensal() +
                 "\nSaldo: "+ getSaldo();
     }
 }

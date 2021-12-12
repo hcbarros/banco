@@ -2,12 +2,10 @@ package br.com.banco.tipos_conta;
 
 import br.com.banco.enums.Agencia;
 
-import java.time.LocalDate;
 
 public class ContaCorrente extends Conta {
 
     private double limite;
-    private static LocalDate data;
 
     public ContaCorrente(String nome, double rendaMensal, Agencia agencia) {
         super(nome, rendaMensal, agencia);

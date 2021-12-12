@@ -58,7 +58,7 @@ public class GeradorConta {
             renda = scanner.nextLine();
             if(!renda.matches("\\d{1,10}(\\.\\d{1,2})?$")) {
                 System.out.println("A renda deve ser um número com no máximo 2 casa decimais!" +
-                        "\nPor exemplo: 12.22\nOutro exemplo: 12");
+                        "\nPor exemplo: 12.22\nOutro exemplo: 155");
                 renda = null;
             }
             return criarConta(contas, classe, nome, renda, ag, cpf);

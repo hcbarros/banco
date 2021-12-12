@@ -2,8 +2,6 @@ package br.com.banco.utils;
 
 import br.com.banco.tipos_conta.Conta;
 import br.com.banco.tipos_conta.ContaCorrente;
-import br.com.banco.tipos_conta.ContaInvestimento;
-import br.com.banco.tipos_conta.ContaPoupanca;
 
 import java.util.Scanner;
 import java.util.List;

@@ -25,7 +25,7 @@ public class Operacoes {
             }
             if (!valor.matches("\\d{1,10}(\\.\\d{1,2})?$")) {
                 System.out.println("A valor deve ser um número com no máximo 2 casa decimais!" +
-                        "\nPor exemplo: 12.22\nOutro exemplo: 12");
+                        "\nPor exemplo: 12.22\nOutro exemplo: 155");
                 return operar(contas, c, op,null);
             }
         }
@@ -87,7 +87,7 @@ public class Operacoes {
         }
         if (!renda.matches("\\d{1,10}(\\.\\d{1,2})?$")) {
             System.out.println("A renda deve ser um número com no máximo 2 casa decimais!" +
-                    "\nPor exemplo: 12.22\nOutro exemplo: 12");
+                    "\nPor exemplo: 12.22\nOutro exemplo: 155");
             return alterarDados(c, nome);
         }
         c.alterarDadosCadastrais(nome, Double.parseDouble(renda));
@@ -108,7 +108,7 @@ public class Operacoes {
                 }
                 if (!rent.matches("\\d{1,10}(\\.\\d{1,2})?$")) {
                     System.out.println("A rentabilidade deve ser um número com no máximo 2 casa decimais!" +
-                            "\nPor exemplo: 12.22\nOutro exemplo: 12");
+                            "\nPor exemplo: 12.22\nOutro exemplo: 155");
                     return simularInvestimento(contas, c, null);
                 }
                 return simularInvestimento(contas, c, rent);
