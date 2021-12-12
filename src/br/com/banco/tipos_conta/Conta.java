@@ -1,10 +1,9 @@
-package banco;
+package br.com.banco.tipos_conta;
+
+import br.com.banco.enums.Agencia;
+import br.com.banco.Transacoes;
 
 import java.lang.reflect.Method;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Conta {
 
@@ -26,23 +25,27 @@ public abstract class Conta {
     }
 
     public Conta validarCPF(String cpf) {
-        for(int i = 9; i < 11; i++) {
-            int soma = 0;
-            int desc = i + 1;
-            for (int j = 0; j < i; j++) {
-                soma += (cpf.charAt(j) - '0') * (desc--);
-            }
-            int result = (soma % 11) < 2 ? 0 : (11 - (soma % 11));
-            int digito = cpf.charAt(i) - '0';
-            if (digito != result) {
-                System.out.println("CPF inválido!");
-                return null;
-            }
+        if(!ehCpfValido(cpf, true)) {
+            System.out.println("CPF inválido!");
+            return null;
         }
         this.cpf = cpf;
         this.conta = ++sequencial;
         this.transacoes = new Transacoes(this);
         return this;
+    }
+
+    public static boolean ehCpfValido(String cpf, boolean inicio) {
+        cpf = cpf.replace(".","").replace("-","");
+        if(!cpf.matches("\\d{11}")) return false;
+        int soma = 0;
+        int desc = (inicio ? 9 : 10) + 1;
+        for (int j = 0; j < (inicio ? 9 : 10); j++) {
+            soma += (cpf.charAt(j) - '0') * (desc--);
+        }
+        int resp = (soma % 11) < 2 ? 0 : (11 - (soma % 11));
+        int dig = cpf.charAt(inicio ? 9 : 10) - '0';
+        return inicio ? ((dig == resp) && ehCpfValido(cpf,false)) : (dig == resp);
     }
 
     private double saque(double valor, boolean ehTransferencia) {
@@ -74,19 +77,22 @@ public abstract class Conta {
         return saque(valor, false);
     }
 
-    private void deposito(double valor, boolean ehTransferencia) {
+    private void deposito(double valor, Conta c) {
         if(valor <= 0) {
             System.out.println("Informe um valor positivo!");
             return;
         }
         saldo += valor;
-        if(!ehTransferencia) {
+        if(c == null) {
             transacoes.deposito(valor);
+        }
+        else {
+            transacoes.depositoOutraConta(c, valor);
         }
     }
 
     public void deposito(double valor) {
-        deposito(valor, false);
+        deposito(valor, null);
     }
 
     public void saldo() {
@@ -95,7 +101,8 @@ public abstract class Conta {
 
     public void extrato() {
         if(transacoes.isEmpty()) {
-            System.out.println("A conta de número "+conta+" ainda não possui movimentação!");
+            System.out.println("A conta de número "+conta+" pertencente ao CPF " +cpf+
+                    " ainda não possui movimentação!");
             return;
         }
         transacoes.forEach(System.out::println);
@@ -112,7 +119,7 @@ public abstract class Conta {
         double quantia = saque(valor, true);
         if(c != null && quantia > 0) {
             transacoes.transferencia(c, valor);
-            c.deposito(valor,true);
+            c.deposito(valor,this);
         }
     }
 
@@ -155,6 +162,7 @@ public abstract class Conta {
                 "\nTitular: "+ getNome() +
                 "\nAgência: "+ getAgencia() +
                 "\nNúmero da conta: "+ getConta() +
+                "\nRenda mensal: R$"+ getRendaMensal() +
                 "\nSaldo: "+ getSaldo();
     }
 }

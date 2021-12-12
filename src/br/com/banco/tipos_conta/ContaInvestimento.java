@@ -1,4 +1,6 @@
-package banco;
+package br.com.banco.tipos_conta;
+
+import br.com.banco.enums.Agencia;
 
 public class ContaInvestimento extends Conta {
 

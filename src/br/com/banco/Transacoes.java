@@ -1,4 +1,6 @@
-package banco;
+package br.com.banco;
+
+import br.com.banco.tipos_conta.Conta;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -29,6 +31,22 @@ public class Transacoes extends ArrayList<String> {
                         "\nAgência: "+ conta.getAgencia().name();
         add(result);
         System.out.println("\nDepósito realizado com sucesso!");
+    }
+
+    public void depositoOutraConta(Conta origem, double valor) {
+        String result = "\nDepósito ocorrido em " + getData() +
+                "\nValor da depósito: R$ " + String.format("%.2f", valor) +
+                "\nConta de origem: \n\t\t- agência -> " + origem.getAgencia().name() +
+                "\n\t\t- conta -> " + origem.getConta() +
+                "\n\t\t- nome do titular -> " + origem.getNome() +
+                "\n\t\t- CPF -> " + formatarCFP(origem.getCpf()) +
+                "\nConta de destino: \n\t\t- agência -> " + conta.getAgencia().name() +
+                "\n\t\t- conta -> " + conta.getConta() +
+                "\n\t\t- nome do titular -> " + conta.getNome() +
+                "\n\t\t- CPF -> " + formatarCFP(conta.getCpf());
+
+        add(result);
+        System.out.println("\nTransferência realizada com sucesso!");
     }
 
     public void transferencia(Conta dest, double valor) {
