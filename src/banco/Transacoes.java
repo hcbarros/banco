@@ -19,7 +19,7 @@ public class Transacoes extends ArrayList<String> {
                         "\nNúmero da conta: "+ conta.getConta() +
                         "\nAgência: "+ conta.getAgencia().name();
         add(result);
-        System.out.println("Saque realizado com sucesso!");
+        System.out.println("\nSaque realizado com sucesso!");
     }
 
     public void deposito(double valor) {
@@ -28,7 +28,7 @@ public class Transacoes extends ArrayList<String> {
                         "\nNúmero da conta: "+ conta.getConta() +
                         "\nAgência: "+ conta.getAgencia().name();
         add(result);
-        System.out.println("Depósito realizado com sucesso!");
+        System.out.println("\nDepósito realizado com sucesso!");
     }
 
     public void transferencia(Conta dest, double valor) {
@@ -44,7 +44,7 @@ public class Transacoes extends ArrayList<String> {
                 "\n\t\t- CPF -> " + formatarCFP(dest.getCpf());
 
         add(result);
-        System.out.println("Transferência realizada com sucesso!");
+        System.out.println("\nTransferência realizada com sucesso!");
     }
 
     private String getData() {

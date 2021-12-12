@@ -16,8 +16,9 @@ public class Banco {
 
 
     private static void listarContas(Class<?> classe, boolean ehNegativo) {
+        boolean bool = false;
         contas.forEach(c -> {
-            if(c.getClass().isAssignableFrom(classe)) {
+            if(c.getClass().equals(classe)) {
                 System.out.println(c);
             }
             else if(c.getClass().getSuperclass().equals(classe)) {
@@ -29,17 +30,17 @@ public class Banco {
                 }
             }
         });
+        if(contas.isEmpty()) {
+            System.out.println("Não há contas cadastradas no sistema!");
+        }
     }
 
     private static String listarContas() {
 
-        System.out.println("\n1 - Listar contas-corrente");
-        System.out.println("2 - Listar contas-poupança");
-        System.out.println("3 - Listar contas investimento");
-        System.out.println("4 - Listar todas as contas");
-        System.out.println("5 - Listar contas com saldo negativo");
-        System.out.println("6 - Retornar ao menu principal");
-        System.out.println("0 - Encerrar a sessão");
+        System.out.println("\n1 - Listar contas-corrente\n2 - Listar contas-poupança" +
+                "\n3 - Listar contas investimento\n4 - Listar todas as contas" +
+                "\n5 - Listar contas com saldo negativo\n6 - Retornar ao menu principal" +
+                "\n0 - Encerrar a sessão");
 
         String opcao = scanner.nextLine();
         switch (opcao.hashCode()) {
@@ -70,32 +71,36 @@ public class Banco {
         return listarContas();
     }
 
-    private static void totalInvestido() {
+    private static void totalInvestido(String cpf) {
 
-        System.out.println("\nTotal do valor investido");
-        System.out.println("1 - Total de um cliente");
-        System.out.println("2 - Total de todos os clientes");
-        System.out.println("3 - Retornar ao menu anterior");
-
-        String cpf = null;
-        String opcao = scanner.nextLine();
+        String opcao = "1";
+        if(cpf == null) {
+            System.out.println("\nTotal do valor investido\n1 - Total de um cliente" +
+                    "\n2 - Total de todos os clientes\n3 - Retornar ao menu anterior");
+            opcao = scanner.nextLine();
+        }
         switch (opcao.hashCode()) {
             case 49:
-                System.out.print("Inform o CPF do cliente (apenas números): ");
+                System.out.print("Informe o CPF do cliente (apenas números): ");
                 cpf = scanner.nextLine();
+                if(!cpf.matches("\\d{11}")) {
+                    totalInvestido(cpf);
+                }
                 break;
             case 50: break;
             case 51: return;
             default:
                 System.out.println("Opção inválida!");
-                totalInvestido();
+                totalInvestido(null);
         }
 
         double total = 0;
+        boolean find = false;
         for(Conta c: contas) {
             if(c.getClass().equals(CONTA_POUPANCA) || c.getClass().equals(CONTA_INVESTIMENTO)) {
                 if(cpf != null && cpf.equals(c.getCpf())) {
                     total += c.getSaldo();
+                    find = true;
                 }
                 else if(cpf == null) {
                     total += c.getSaldo();
@@ -103,14 +108,18 @@ public class Banco {
             }
         }
         if(cpf == null) {
-            System.out.println("O total investido de todos os clientes é de R$ "+
+            System.out.println("\nO total investido de todos os clientes é de R$ "+
                     String.format("%.2f",total));
-            totalInvestido();
+            totalInvestido(null);
         }
-        System.out.println("O total investido pelo cliente de CPF "+ cpf +" é de R$ "+
+        if(!find) {
+            System.out.println("O CPF informado não possui conta-investimento nem conta-poupança!");
+            totalInvestido(null);
+        }
+        System.out.println("\nO total investido pelo cliente de CPF "+ cpf +" é de R$ "+
                 String.format("%.2f",total));
 
-        totalInvestido();
+        totalInvestido(null);
     }
 
     private static String criarConta(Class<?> classe, String nome, String renda, String ag, String cpf) {
@@ -180,12 +189,8 @@ public class Banco {
 
     private static String opcaoCriarConta() {
 
-        System.out.println("\nEscolha uma opção:");
-        System.out.println("1 - Criar conta-corrente");
-        System.out.println("2 - Criar conta-poupança");
-        System.out.println("3 - Criar conta investimento");
-        System.out.println("4 - Retornar ao menu inicial");
-        System.out.println("0 - Encerrar a sessão");
+        System.out.println("\nEscolha uma opção:\n1 - Criar conta-corrente\n2 - Criar conta-poupança" +
+            "\n3 - Criar conta investimento\n4 - Retornar ao menu inicial\n0 - Encerrar a sessão");
 
         String opcao = scanner.nextLine();
         switch (opcao.hashCode()) {
@@ -211,31 +216,50 @@ public class Banco {
                 opcao : opcaoCriarConta();
     }
 
+    private static String alterarDados(Conta c, String nome) {
+
+        if(nome == null) {
+            System.out.println("Alteração de dados cadastrais");
+            System.out.print("Informe o novo nome do titular ou " +
+                    "digite 'sair' para retornar ao menu anterior: ");
+
+            nome = scanner.nextLine();
+            if (nome.equalsIgnoreCase("sair")) {
+                return "";
+            }
+            if (nome.isEmpty() || nome.isBlank()) {
+                return alterarDados(c, null);
+            }
+        }
+        System.out.print("informe a nova renda mensal do titular " +
+                "ou digite 'sair' para retornar ao menu anterior: ");
+
+        String renda = scanner.nextLine();
+        if (renda.equalsIgnoreCase("sair")) {
+            return "";
+        }
+        if (!renda.matches("\\d{1,10}(\\.\\d{1,2})?$")) {
+            System.out.println("O valor deve ser um número com no máximo 2 casa decimais!");
+            return alterarDados(c, nome);
+        }
+        c.alterarDadosCadastrais(nome, Double.parseDouble(renda));
+        return "";
+    }
+
     private static String operacoes(Conta c, int op) {
 
-        String valor = "";
-        if(op == 4) {
-            System.out.println("Alteração de dados cadastrais");
-            System.out.print("informe o novo nome do titular ou " +
-                    "digite 'sair' para retornar ao menu anterior: ");
-        }
-        else {
-            System.out.print("informe o valor " +
-                    (op == 1 ? "do saque" : op == 2 ? "do depósito" : "da transferência") +
-                    " ou digite 'sair' para retornar ao menu anterior: ");
-        }
-        valor = scanner.nextLine();
+        System.out.print("informe o valor " +
+                (op == 1 ? "do saque" : op == 2 ? "do depósito" : "da transferência") +
+                " ou digite 'sair' para retornar ao menu anterior: ");
+
+        String valor = scanner.nextLine();
         if (valor.equalsIgnoreCase("sair")) {
             return "";
         }
-        if ((valor.isEmpty() || valor.isBlank()) && op == 4) {
-            return operacoes(c, op);
-        }
-        if (!valor.matches("\\d{1,10}(\\.\\d{1,2})?$") && op != 4) {
+        if (!valor.matches("\\d{1,10}(\\.\\d{1,2})?$")) {
             System.out.println("O valor deve ser um número com no máximo 2 casa decimais!");
             return operacoes(c, op);
         }
-
         switch (op) {
             case 1:
                 c.saque(Double.parseDouble(valor));
@@ -264,20 +288,64 @@ public class Banco {
                 c.transferir(co, Double.parseDouble(valor));
                 break;
             }
-            case 4: {
-                System.out.print("informe a nova renda mensal do titular " +
-                        "ou digite 'sair' para retornar ao menu anterior: ");
-
-                final String nome = valor;
-                valor = scanner.nextLine();
-                if (!valor.matches("\\d{1,10}(\\.\\d{1,2})?$") && op != 4) {
-                    System.out.println("O valor deve ser um número com no máximo 2 casa decimais!");
-                    return operacoes(c, op);
-                }
-                c.alterarDadosCadastrais(nome, Double.parseDouble(valor));
-                break;
-            }
             default:
+        }
+        return "";
+    }
+
+    private static String simularInvestimento(Conta c, String rent) {
+
+        if(c.getClass().equals(CONTA_POUPANCA)) {
+
+            if(rent == null) {
+                System.out.print("\nInforme a rentabilidade anual da poupança ou digite 'sair' " +
+                        "para retornar ao menu anterior: ");
+                rent = scanner.nextLine();
+                if(rent.equalsIgnoreCase("sair")) {
+                    return acessarContas(String.valueOf(c.getConta()));
+                }
+                if(!rent.matches("\\d{1,10}(\\.\\d{1,2})?$")) {
+                    System.out.println("A renda deve ser um número com no máximo 2 casa decimais!" +
+                            "\nPor exemplo: 12.22\nOutro exemplo: 12");
+                    simularInvestimento(c, null);
+                }
+                simularInvestimento(c, rent);
+            }
+            else {
+                System.out.print("\nInforme o tempo em meses que você deseja simular: ");
+                String tempo = scanner.nextLine();
+                if(!tempo.matches("\\d{1,10}")) {
+                    System.out.println("O tempo deve ser um número inteiro positivo: ");
+                    simularInvestimento(c, rent);
+                }
+                ((ContaPoupanca) c).rendimento(Integer.parseInt(tempo), Double.parseDouble(rent));
+                return acessarContas(String.valueOf(c.getConta()));
+            }
+        }
+        else {
+            System.out.println("\nEscolha uma opção para simular um investimento: \n1 - CDB" +
+                    "\n2 - LCA\n3 - LCI\n4 - Tesouro Direto\n5 - Retornar ao menu anterior");
+
+            String opcao = scanner.nextLine();
+            switch (opcao.hashCode()) {
+                case 49:
+                    ((ContaInvestimento) c).cdb();
+                    return simularInvestimento(c, null);
+                case 50:
+                    ((ContaInvestimento) c).lca();
+                    return simularInvestimento(c, null);
+                case 51:
+                    ((ContaInvestimento) c).lci();
+                    return simularInvestimento(c, null);
+                case 52:
+                    ((ContaInvestimento) c).tesouroDireto();
+                    return simularInvestimento(c, null);
+                case 53:
+                    return acessarContas(String.valueOf(c.getConta()));
+                default:
+                    System.out.println("Opção inválida!");
+                    return simularInvestimento(c,null);
+            }
         }
         return "";
     }
@@ -304,14 +372,9 @@ public class Banco {
                 System.out.println("Conta inexistente!");
                 return acessarContas(null);
             }
-            System.out.println("\n1 - Saque");
-            System.out.println("2 - Depósito");
-            System.out.println("3 - Tranferência");
-            System.out.println("4 - Alterar dados cadastrais");
-            System.out.println("5 - Exibir saldo");
-            System.out.println("6 - Extrato");
-            System.out.println("7 - Retornar ao menu anterior");
-            System.out.println("0 - Encerrar sessão");
+            String invest = !(c.getClass().equals(CONTA_CORRENTE)) ? "\n8 - Simular investimento" : "";
+            System.out.println("\n1 - Saque\n2 - Depósito\n3 - Tranferência\n4 - Alterar dados cadastrais" +
+                "\n5 - Exibir saldo\n6 - Extrato\n7 - Retornar ao menu anterior"+ invest +"\n0 - Encerrar sessão");
 
             String opcao = scanner.nextLine();
 
@@ -319,29 +382,30 @@ public class Banco {
 
                 case 49:
                     operacoes(c,1);
-                    acessarContas(conta);
-                    break;
+                    return acessarContas(conta);
                 case 50:
                     operacoes(c,2);
-                    acessarContas(conta);
-                    break;
+                    return acessarContas(conta);
                 case 51:
                     operacoes(c,3);
-                    acessarContas(conta);
-                    break;
+                    return acessarContas(conta);
                 case 52:
-                    operacoes(c,4);
-                    acessarContas(conta);
-                    break;
+                    alterarDados(c,null);
+                    return acessarContas(conta);
                 case 53:
                     c.saldo();
-                    acessarContas(conta);
-                    break;
+                    return acessarContas(conta);
                 case 54:
                     c.extrato();
-                    acessarContas(conta);
-                    break;
+                    return acessarContas(conta);
                 case 55: return "";
+                case 56:
+                    if(invest.isEmpty()) {
+                        System.out.println("Opção inválida!");
+                        acessarContas(conta);
+                    }
+                    else simularInvestimento(c,null);
+                    break;
                 case 48:
                     System.out.println("Volte sempre! Até a próxima.");
                     return "0";
@@ -360,7 +424,8 @@ public class Banco {
             return "";
         }
         List<Conta> list = contas.stream()
-                .filter(c -> c.equals(cpf)).collect(Collectors.toList());
+                                 .filter(c -> c.getCpf().equals(cpf))
+                                 .collect(Collectors.toList());
         if(list.isEmpty()) {
             System.out.println("CPF não encontrado!");
             return transacoesCliente();
@@ -371,13 +436,9 @@ public class Banco {
 
     private static String menuPrincipal() {
 
-            System.out.println("\nEscolha uma opção:");
-            System.out.println("1 - Criar conta");
-            System.out.println("2 - Acessar contas");
-            System.out.println("3 - Listar contas");
-            System.out.println("4 - Exibir total investido");
-            System.out.println("5 - Transações de um cliente");
-            System.out.println("0 - Encerrar a sessão");
+            System.out.println("\nEscolha uma opção:\n1 - Criar conta\n2 - Acessar contas" +
+                    "\n3 - Listar contas\n4 - Exibir total investido\n5 - Transações de um cliente" +
+                    "\n0 - Encerrar a sessão");
 
             String opcao = scanner.nextLine();
 
@@ -392,7 +453,7 @@ public class Banco {
                     opcao = listarContas();
                     break;
                 case 52:
-                    totalInvestido();
+                    totalInvestido(null);
                     break;
                 case 53:
                     opcao = transacoesCliente();
@@ -419,24 +480,6 @@ public class Banco {
 //                            Agencia.SAO_JOSE_002).validarCPF("02657226400");;
 
         menuPrincipal();
-
-
-//        System.out.println("2424242".matches("\\d+$"));
-//        System.out.println("8565".matches("\\d{1,4}"));
-//        System.out.println("242.42".matches("\\d+(\\.\\d{1,2})?$"));
-//
-//        poupanca.rendimento(4, 5);
-//
-//        contas.add(corrente);
-//        contas.add(poupanca);
-//
-//        corrente.saque(500);
-//        poupanca.transferir(corrente,500);
-//
-//        listarContas(CONTA, false);
-
-
-
 
     }
 }
