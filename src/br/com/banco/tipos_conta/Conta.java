@@ -54,19 +54,19 @@ public abstract class Conta {
 
     private double saque(double valor, boolean ehTransferencia) {
         if(valor <= 0) {
-            System.out.println("Informe um valor positivo!");
+            System.out.println("\nInforme um valor positivo!");
             return 0;
         }
-        if((saldo - valor) <= 0) {
+        if((saldo - valor) < 0) {
             try {
                 Method m = this.getClass().getMethod("getLimite");
                 double limite = (double) m.invoke(this);
                 if((saldo + limite) - valor < 0) {
-                    System.out.println("Você não possui saldo suficiente!");
+                    System.out.println("\nVocê não possui saldo suficiente!");
                     return 0;
                 }
             }catch(Exception e) {
-                System.out.println("Você não possui saldo suficiente!");
+                System.out.println("\nVocê não possui saldo suficiente!");
                 return 0;
             }
         }
@@ -83,7 +83,7 @@ public abstract class Conta {
 
     private void deposito(double valor, Conta c) {
         if(valor <= 0) {
-            System.out.println("Informe um valor positivo!");
+            System.out.println("\nInforme um valor positivo!");
             return;
         }
         saldo += valor;
@@ -114,7 +114,7 @@ public abstract class Conta {
 
     public void transferir(Conta c, double valor) {
         if(valor <= 0) {
-            System.out.println("Informe um valor positivo!");
+            System.out.println("\nInforme um valor positivo!");
             return;
         }
         if(c == null) {
