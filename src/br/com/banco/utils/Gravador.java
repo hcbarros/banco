@@ -39,4 +39,16 @@ public class Gravador {
         }
     }
 
+    public static void carregarArquivo(Conta c, boolean trasacoes) {
+        try {
+            String diretorio = trasacoes ? "transacoes-gravadas/" : "contas-gravadas/";
+            java.awt.Desktop.getDesktop().open(
+                    new File(diretorio + c.getCpf()+c.getConta()+".txt"));
+        }
+        catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+
 }

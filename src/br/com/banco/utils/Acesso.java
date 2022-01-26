@@ -52,9 +52,11 @@ public class Acesso {
                     return acessarContas(contas, conta);
                 case 53:
                     c.saldo();
+                    Gravador.carregarArquivo(c, false);
                     return acessarContas(contas, conta);
                 case 54:
                     c.extrato();
+                    Gravador.carregarArquivo(c, true);
                     return acessarContas(contas, conta);
                 case 55:
                     return "";
