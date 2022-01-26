@@ -9,8 +9,8 @@ public class ContaInvestimento extends Conta {
     private final double LCA_PERCENTUAL_ANUAL = 0.12;
     private final double LCI_PERCENTUAL_ANUAL = 0.13;
 
-    public ContaInvestimento(String nome, double rendaMensal, Agencia agencia) {
-        super(nome, rendaMensal, agencia);
+    public ContaInvestimento(String nome, double rendaMensal, Agencia agencia, String cpf) {
+        super(nome, rendaMensal, agencia, cpf);
     }
 
     private void imprimirDados(double percentual, String insvest) {

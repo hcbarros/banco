@@ -18,22 +18,14 @@ public abstract class Conta {
     private static int sequencial;
 
 
-    public Conta(String nome, double rendaMensal, Agencia agencia) {
+    public Conta(String nome, double rendaMensal, Agencia agencia, String cpf) {
         this.nome = nome;
         this.rendaMensal = rendaMensal;
         this.agencia = agencia;
         this.saldo = 0.0;
-    }
-
-    public Conta validarCPF(String cpf) {
-        if(!ehCpfValido(cpf, true)) {
-            System.out.println("CPF inválido!");
-            return null;
-        }
-        this.cpf = cpf;
+        this.cpf = cpf.replaceAll("[^\\d]", "");
         this.conta = ++sequencial;
         this.transacoes = new Transacoes(this);
-        return this;
     }
 
     public static boolean ehCpfValido(String cpf, boolean inicio) {

@@ -5,8 +5,8 @@ import br.com.banco.enums.Agencia;
 public class ContaPoupanca extends Conta {
 
 
-    public ContaPoupanca(String nome, double rendaMensal, Agencia agencia) {
-        super(nome, rendaMensal, agencia);
+    public ContaPoupanca(String nome, double rendaMensal, Agencia agencia, String cpf) {
+        super(nome, rendaMensal, agencia, cpf);
     }
 
     public void rendimento(int tempoMeses, double percentAnual){

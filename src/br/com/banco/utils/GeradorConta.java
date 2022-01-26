@@ -81,28 +81,16 @@ public class GeradorConta {
                 System.out.println("CPF inválido!");
                 return criarConta(contas, classe, nome, renda, ag, null);
             }
-            else {
-                if(classe.equals(ContaCorrente.class)) {
-                    ContaCorrente c = (ContaCorrente) new ContaCorrente(nome, Double.parseDouble(renda),
-                            ag.equals("1") ? Agencia.FLORIANOPOLIS_001 : Agencia.SAO_JOSE_002)
-                            .validarCPF(cpf);
-                    if(c == null) return criarConta(contas, classe, nome, renda, ag,null);
-                    else contas.add(c);
-                }
-                else if(classe.equals(ContaPoupanca.class)) {
-                    ContaPoupanca c = (ContaPoupanca) new ContaPoupanca(nome, Double.parseDouble(renda),
-                            ag.equals("1") ? Agencia.FLORIANOPOLIS_001 : Agencia.SAO_JOSE_002)
-                            .validarCPF(cpf);
-                    if(c == null) return criarConta(contas, classe, nome, renda, ag, null);
-                    else contas.add(c);
-                }
-                else {
-                    ContaInvestimento c = (ContaInvestimento) new ContaInvestimento(nome, Double.parseDouble(renda),
-                            ag.equals("1") ? Agencia.FLORIANOPOLIS_001 : Agencia.SAO_JOSE_002)
-                            .validarCPF(cpf);
-                    if(c == null) return criarConta(contas, classe, nome, renda, ag, null);
-                    else contas.add(c);
-                }
+            try {
+                Conta c = (Conta) classe.getDeclaredConstructor(
+                        String.class, double.class, Agencia.class, String.class)
+                        .newInstance(nome, Double.parseDouble(renda),
+                                ag.equals("1") ? Agencia.FLORIANOPOLIS_001 : Agencia.SAO_JOSE_002, cpf);
+                contas.add(c);
+                Gravador.gravarConta(c);
+            }
+            catch (Exception ex) {
+                System.out.println("Erro: "+ex.getMessage());
             }
         }
         System.out.println("\n"+classe.getSimpleName() + " criada com sucesso!");
@@ -110,3 +98,4 @@ public class GeradorConta {
     }
 
 }
+

@@ -55,10 +55,12 @@ public class Operacoes {
                     return operar(contas, c, op, valor);
                 }
                 c.transferir(co, Double.parseDouble(valor));
+                Gravador.gravarConta(co);
                 break;
             }
             default:
         }
+        Gravador.gravarConta(c);
         return "";
     }
 
@@ -91,6 +93,7 @@ public class Operacoes {
             return alterarDados(c, nome);
         }
         c.alterarDadosCadastrais(nome, Double.parseDouble(renda));
+        Gravador.gravarConta(c);
         return "";
     }
 
