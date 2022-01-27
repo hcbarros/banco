@@ -1,7 +1,7 @@
 package br.com.banco;
 
 import br.com.banco.tipos_conta.Conta;
-import br.com.banco.utils.Gravador;
+import br.com.banco.utils.FileHandler;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +22,7 @@ public class Transacoes extends ArrayList<String> {
                         "\nNúmero da conta: "+ conta.getConta() +
                         "\nAgência: "+ conta.getAgencia().name();
         add(result);
-        Gravador.gravarTransacoes(conta, result);
+        FileHandler.gravarTransacoes(conta, result);
         System.out.println("\nSaque realizado com sucesso!");
     }
 
@@ -32,7 +32,7 @@ public class Transacoes extends ArrayList<String> {
                         "\nNúmero da conta: "+ conta.getConta() +
                         "\nAgência: "+ conta.getAgencia().name();
         add(result);
-        Gravador.gravarTransacoes(conta, result);
+        FileHandler.gravarTransacoes(conta, result);
         System.out.println("\nDepósito realizado com sucesso!");
     }
 
@@ -48,7 +48,7 @@ public class Transacoes extends ArrayList<String> {
                 "\n\t\t- nome do titular -> " + conta.getNome() +
                 "\n\t\t- CPF -> " + formatarCFP(conta.getCpf());
 
-        Gravador.gravarTransacoes(conta, result);
+        FileHandler.gravarTransacoes(conta, result);
         add(result);
     }
 
@@ -65,7 +65,7 @@ public class Transacoes extends ArrayList<String> {
                 "\n\t\t- CPF -> " + formatarCFP(dest.getCpf());
 
         add(result);
-        Gravador.gravarTransacoes(conta, result);
+        FileHandler.gravarTransacoes(conta, result);
         System.out.println("\nTransferência realizada com sucesso!");
     }
 

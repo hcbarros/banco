@@ -87,7 +87,7 @@ public class GeradorConta {
                         .newInstance(nome, Double.parseDouble(renda),
                                 ag.equals("1") ? Agencia.FLORIANOPOLIS_001 : Agencia.SAO_JOSE_002, cpf);
                 contas.add(c);
-                Gravador.gravarConta(c);
+                FileHandler.gravarConta(c);
             }
             catch (Exception ex) {
                 System.out.println("Erro: "+ex.getMessage());

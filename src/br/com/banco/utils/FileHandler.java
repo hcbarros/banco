@@ -2,12 +2,12 @@ package br.com.banco.utils;
 
 import br.com.banco.tipos_conta.Conta;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class Gravador {
+public class FileHandler {
 
 
 
@@ -17,7 +17,7 @@ public class Gravador {
             FileOutputStream arquivo = new FileOutputStream(
                     "contas-gravadas/"+c.getCpf()+c.getConta()+".txt",false);
             PrintStream gravador = new PrintStream(arquivo);
-            gravador.println ("\r\n"+c);
+            gravador.println (c);
             gravador.close();
         }
         catch (IOException ioe) {
@@ -31,7 +31,7 @@ public class Gravador {
             FileOutputStream arquivo = new FileOutputStream(
                     "transacoes-gravadas/"+c.getCpf()+c.getConta()+".txt",true);
             PrintStream gravador = new PrintStream(arquivo);
-            gravador.println ("\r\n"+transacao);
+            gravador.println (transacao);
             gravador.close();
         }
         catch (IOException ioe) {
@@ -39,11 +39,13 @@ public class Gravador {
         }
     }
 
-    public static void carregarArquivo(Conta c, boolean trasacoes) {
+    public static void lerDados(Conta c, boolean trasacoes) {
         try {
             String diretorio = trasacoes ? "transacoes-gravadas/" : "contas-gravadas/";
-            java.awt.Desktop.getDesktop().open(
-                    new File(diretorio + c.getCpf()+c.getConta()+".txt"));
+            BufferedReader br = new BufferedReader(new FileReader(
+                    diretorio + c.getCpf()+c.getConta()+".txt"));
+            List<String> linhas = br.lines().collect(Collectors.toCollection(ArrayList<String>::new));
+            linhas.forEach(System.out::println);
         }
         catch (IOException ex) {
             System.out.println(ex.getMessage());

@@ -54,19 +54,16 @@ public class Exibicao {
     private static void listarContas(List<Conta> contas, Class<?> classe, boolean ehNegativo) {
         contas.forEach(c -> {
             if(c.getClass().equals(classe)) {
-                System.out.println(c);
-                Gravador.carregarArquivo(c, false);
+                FileHandler.lerDados(c, false);
                 find = true;
             }
             else if(c.getClass().getSuperclass().equals(classe)) {
                 if(ehNegativo && c.getSaldo() < 0) {
-                    System.out.println(c);
-                    Gravador.carregarArquivo(c, false);
+                    FileHandler.lerDados(c, false);
                     find = true;
                 }
                 else if(!ehNegativo) {
-                    System.out.println(c);
-                    Gravador.carregarArquivo(c, false);
+                    FileHandler.lerDados(c, false);
                     find = true;
                 }
             }
@@ -156,8 +153,7 @@ public class Exibicao {
             return transacoesCliente(contas);
         }
         list.forEach(c -> {
-            c.extrato();
-            Gravador.carregarArquivo(c,true);
+            FileHandler.lerDados(c,true);
         });
         return "";
     }

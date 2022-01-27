@@ -5,7 +5,7 @@ import br.com.banco.tipos_conta.Conta;
 import br.com.banco.tipos_conta.ContaCorrente;
 import br.com.banco.tipos_conta.ContaInvestimento;
 import br.com.banco.tipos_conta.ContaPoupanca;
-import br.com.banco.utils.Gravador;
+import br.com.banco.utils.FileHandler;
 import br.com.banco.utils.MenuPrincipal;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class Main {
 
         contas.addAll(List.of(c1,c2,c3,c4));
         for(Conta c: contas) {
-            Gravador.gravarConta(c);
+            FileHandler.gravarConta(c);
         }
     }
 
