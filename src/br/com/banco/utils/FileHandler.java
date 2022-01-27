@@ -19,6 +19,7 @@ public class FileHandler {
             PrintStream gravador = new PrintStream(arquivo);
             gravador.println (c);
             gravador.close();
+            arquivo.close();
         }
         catch (IOException ioe) {
             System.out.println("Erro na gravacao de dados");
@@ -33,19 +34,21 @@ public class FileHandler {
             PrintStream gravador = new PrintStream(arquivo);
             gravador.println (transacao);
             gravador.close();
+            arquivo.close();
         }
         catch (IOException ioe) {
             System.out.println("Erro na gravacao de dados");
         }
     }
 
-    public static void lerDados(Conta c, boolean trasacoes) {
+    public static void lerDados(Conta c, boolean transacoes) {
         try {
-            String diretorio = trasacoes ? "transacoes-gravadas/" : "contas-gravadas/";
+            String diretorio = transacoes ? "transacoes-gravadas/" : "contas-gravadas/";
             BufferedReader br = new BufferedReader(new FileReader(
                     diretorio + c.getCpf()+c.getConta()+".txt"));
             List<String> linhas = br.lines().collect(Collectors.toCollection(ArrayList<String>::new));
             linhas.forEach(System.out::println);
+            br.close();
         }
         catch (IOException ex) {
             System.out.println(ex.getMessage());
