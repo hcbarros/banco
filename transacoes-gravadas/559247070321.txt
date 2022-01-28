@@ -1,0 +1,36 @@
+
+Depósito ocorrido em 27/01/2022 21:23:19
+Valor do depósito: R$ 1500.0
+Número da conta: 1
+Agência: SAO_JOSE_002
+
+Transferência ocorrida em 27/01/2022 21:23:19
+Valor da transferência: R$ 500,00
+Conta de origem: 
+		- agência -> SAO_JOSE_002
+		- conta -> 1
+		- nome do titular -> Alex Santos
+		- CPF -> 559.247.070-32
+Conta de destino: 
+		- agência -> FLORIANOPOLIS_001
+		- conta -> 2
+		- nome do titular -> Ana Luíza
+		- CPF -> 638.187.850-90
+
+Transferência ocorrida em 27/01/2022 21:23:19
+Valor da transferência: R$ 700,00
+Conta de origem: 
+		- agência -> SAO_JOSE_002
+		- conta -> 1
+		- nome do titular -> Alex Santos
+		- CPF -> 559.247.070-32
+Conta de destino: 
+		- agência -> FLORIANOPOLIS_001
+		- conta -> 3
+		- nome do titular -> José Rodrigues
+		- CPF -> 201.141.730-95
+
+Saque ocorrido em 27/01/2022 21:23:19
+Valor do saque: R$ 400.0
+Número da conta: 1
+Agência: SAO_JOSE_002

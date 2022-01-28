@@ -1,0 +1,8 @@
+
+Tipo da conta: ContaCorrente
+Titular: Alex Santos
+Agência: SAO_JOSE_002
+Número da conta: 1
+Renda mensal: R$ 2000.0
+Saldo: -100.0
+Limite (cheque especial): 200.0
