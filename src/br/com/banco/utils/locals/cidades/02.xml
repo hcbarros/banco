@@ -1,0 +1,798 @@
+<cidades>
+<cidade>
+<idcidade>0023</idcidade>
+<nome>Agua Branca</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0024</idcidade>
+<nome>Alazao</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0025</idcidade>
+<nome>Alecrim</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0026</idcidade>
+<nome>Anadia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0027</idcidade>
+<nome>Anel</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0028</idcidade>
+<nome>Anum Novo</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0029</idcidade>
+<nome>Anum Velho</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0030</idcidade>
+<nome>Arapiraca</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0031</idcidade>
+<nome>Atalaia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0032</idcidade>
+<nome>Baixa da Onca</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0033</idcidade>
+<nome>Baixa do Capim</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0034</idcidade>
+<nome>Balsamo</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0035</idcidade>
+<nome>Bananeiras</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0036</idcidade>
+<nome>Barra de Santo Antonio</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0037</idcidade>
+<nome>Barra de Sao Miguel</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0038</idcidade>
+<nome>Barra do Bonifacio</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0039</idcidade>
+<nome>Barra Grande</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0040</idcidade>
+<nome>Batalha</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0041</idcidade>
+<nome>Batingas</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0042</idcidade>
+<nome>Belem</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0043</idcidade>
+<nome>Belo Monte</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0044</idcidade>
+<nome>Boa Sorte</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0045</idcidade>
+<nome>Boa Vista</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0046</idcidade>
+<nome>Boca da Mata</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0047</idcidade>
+<nome>Bom Jardim</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0048</idcidade>
+<nome>Bonifacio</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0049</idcidade>
+<nome>Branquinha</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0050</idcidade>
+<nome>Cacimbinhas</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0051</idcidade>
+<nome>Cajarana</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0052</idcidade>
+<nome>Cajueiro</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0053</idcidade>
+<nome>Caldeiroes de Cima</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0054</idcidade>
+<nome>Camadanta</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0055</idcidade>
+<nome>Campestre</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0056</idcidade>
+<nome>Campo Alegre</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0057</idcidade>
+<nome>Campo Grande</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0058</idcidade>
+<nome>Canaa</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0059</idcidade>
+<nome>Canafistula</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0060</idcidade>
+<nome>Canapi</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0061</idcidade>
+<nome>Canastra</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0062</idcidade>
+<nome>Cangandu</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0063</idcidade>
+<nome>Capela</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0064</idcidade>
+<nome>Carneiros</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0065</idcidade>
+<nome>Carrasco</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0066</idcidade>
+<nome>Cha Preta</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0067</idcidade>
+<nome>Coite do Noia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0068</idcidade>
+<nome>Colonia Leopoldina</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0069</idcidade>
+<nome>Coqueiro Seco</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0070</idcidade>
+<nome>Coruripe</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0071</idcidade>
+<nome>Coruripe da Cal</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0072</idcidade>
+<nome>Craibas</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0073</idcidade>
+<nome>Delmiro Gouveia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0074</idcidade>
+<nome>Dois Riachos</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0075</idcidade>
+<nome>Entremontes</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0076</idcidade>
+<nome>Estrela de Alagoas</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0077</idcidade>
+<nome>Feira Grande</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0078</idcidade>
+<nome>Feliz Deserto</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0079</idcidade>
+<nome>Fernao Velho</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0080</idcidade>
+<nome>Flexeiras</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0081</idcidade>
+<nome>Floriano Peixoto</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0082</idcidade>
+<nome>Gaspar</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0083</idcidade>
+<nome>Girau do Ponciano</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0084</idcidade>
+<nome>Ibateguara</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0085</idcidade>
+<nome>Igaci</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0086</idcidade>
+<nome>Igreja Nova</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0087</idcidade>
+<nome>Inhapi</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0088</idcidade>
+<nome>Jacare dos Homens</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0089</idcidade>
+<nome>Jacuipe</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0090</idcidade>
+<nome>Japaratinga</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0091</idcidade>
+<nome>Jaramataia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0092</idcidade>
+<nome>Jenipapo</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0093</idcidade>
+<nome>Joaquim Gomes</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0094</idcidade>
+<nome>Jundia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0095</idcidade>
+<nome>Junqueiro</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0096</idcidade>
+<nome>Lagoa da Areia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0097</idcidade>
+<nome>Lagoa da Canoa</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0098</idcidade>
+<nome>Lagoa da Pedra</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0099</idcidade>
+<nome>Lagoa Dantas</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0100</idcidade>
+<nome>Lagoa do Caldeirao</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0101</idcidade>
+<nome>Lagoa do Canto</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0102</idcidade>
+<nome>Lagoa do Exu</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0103</idcidade>
+<nome>Lagoa do Rancho</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0104</idcidade>
+<nome>Lajes do Caldeirao</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0105</idcidade>
+<nome>Laranjal</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0106</idcidade>
+<nome>Limoeiro de Anadia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0107</idcidade>
+<nome>Maceio</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0108</idcidade>
+<nome>Major Isidoro</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0109</idcidade>
+<nome>Mar Vermelho</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0110</idcidade>
+<nome>Maragogi</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0111</idcidade>
+<nome>Maravilha</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0112</idcidade>
+<nome>Marechal Deodoro</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0113</idcidade>
+<nome>Maribondo</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0114</idcidade>
+<nome>Massaranduba</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0115</idcidade>
+<nome>Mata Grande</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0116</idcidade>
+<nome>Matriz de Camaragibe</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0117</idcidade>
+<nome>Messias</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0118</idcidade>
+<nome>Minador do Negrao</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0119</idcidade>
+<nome>Monteiropolis</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0120</idcidade>
+<nome>Moreira</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0121</idcidade>
+<nome>Munguba</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0122</idcidade>
+<nome>Murici</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0123</idcidade>
+<nome>Novo Lino</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0124</idcidade>
+<nome>Olho D Agua Grande</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0129</idcidade>
+<nome>Olivenca</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0130</idcidade>
+<nome>Ouro Branco</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0131</idcidade>
+<nome>Palestina</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0132</idcidade>
+<nome>Palmeira de Fora</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0133</idcidade>
+<nome>Palmeira dos Indios</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0134</idcidade>
+<nome>Pao de Acucar</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0135</idcidade>
+<nome>Pariconha</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0136</idcidade>
+<nome>Paripueira</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0137</idcidade>
+<nome>Passo de Camaragibe</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0139</idcidade>
+<nome>Pau Ferro</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0140</idcidade>
+<nome>Paulo Jacinto</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0141</idcidade>
+<nome>Penedo</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0142</idcidade>
+<nome>Piacabucu</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0143</idcidade>
+<nome>Pilar</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0144</idcidade>
+<nome>Pindoba</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0145</idcidade>
+<nome>Piranhas</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0146</idcidade>
+<nome>Pocao</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0147</idcidade>
+<nome>Poco da Pedra</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0148</idcidade>
+<nome>Poco das Trincheiras</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0149</idcidade>
+<nome>Porto Calvo</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0150</idcidade>
+<nome>Porto de Pedras</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0151</idcidade>
+<nome>Porto Real do Colegio</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0152</idcidade>
+<nome>Poxim</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0153</idcidade>
+<nome>Quebrangulo</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0154</idcidade>
+<nome>Riacho do Sertao</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0155</idcidade>
+<nome>Riacho Fundo de Cima</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0156</idcidade>
+<nome>Rio Largo</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0157</idcidade>
+<nome>Rocha Cavalcante</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0158</idcidade>
+<nome>Roteiro</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0159</idcidade>
+<nome>Santa Efigenia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0160</idcidade>
+<nome>Santa Luzia do Norte</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0161</idcidade>
+<nome>Santana do Ipanema</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0162</idcidade>
+<nome>Santana do Mundau</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0163</idcidade>
+<nome>Santo Antonio</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0164</idcidade>
+<nome>Sao Bras</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0165</idcidade>
+<nome>Sao Jose da Laje</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0166</idcidade>
+<nome>Sao Jose da Tapera</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0167</idcidade>
+<nome>Sao Luis do Quitunde</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0168</idcidade>
+<nome>Sao Miguel dos Campos</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0169</idcidade>
+<nome>Sao Miguel dos Milagres</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0170</idcidade>
+<nome>Sao Sebastiao</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0171</idcidade>
+<nome>Sapucaia</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0172</idcidade>
+<nome>Satuba</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0173</idcidade>
+<nome>Senador Rui Palmeira</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0174</idcidade>
+<nome>Serra da Mandioca</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0175</idcidade>
+<nome>Serra do Sao Jose</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0176</idcidade>
+<nome>Taboleiro do Pinto</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0177</idcidade>
+<nome>Taboquinha</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0179</idcidade>
+<nome>Taquarana</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0180</idcidade>
+<nome>Tatuamunha</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0181</idcidade>
+<nome>Teotonio Vilela</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0182</idcidade>
+<nome>Traipu</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0183</idcidade>
+<nome>Uniao dos Palmares</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0184</idcidade>
+<nome>Usina Camacari</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0185</idcidade>
+<nome>Vicosa</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0186</idcidade>
+<nome>Vila Aparecida</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+<idcidade>0187</idcidade>
+<nome>Vila Sao Francisco</nome>
+<idestado>02</idestado>
+</cidade>
+<cidade>
+</cidades>
